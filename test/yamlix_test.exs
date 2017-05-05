@@ -1,11 +1,6 @@
 defmodule YamlixTest do
   use ExUnit.Case
   
-  def pasre_with_yamerl(str) do
-    str
-    |> String.to_char_list
-    |> :yamerl_constr.string([{:node_mods, [:yamerl_node_erlang_atom]}])
-  end
 
   test "it dumps integer scalars" do
     assert Yamlix.dump(5) == "--- 5\n...\n"
@@ -70,15 +65,7 @@ defmodule YamlixTest do
   test "it dumps bools (false)" do
     assert Yamlix.dump(false) == "--- false\n...\n"
   end
-
-  test "it dumps atoms with yamerl tag" do
-    assert Yamlix.dump(:a) == "--- !<tag:yamerl,2012:atom> a\n...\n"
-  end
-
-  test "it dumps atoms that can be parsed by yamerl" do
-    assert [:a] == Yamlix.dump(:a) |> pasre_with_yamerl
-  end
-
+  
   test "it indents" do
     complex = %{
       "key1" => [ "elem1", "elem2", "elem3" ],

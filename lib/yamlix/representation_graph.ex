@@ -18,10 +18,6 @@ defmodule RepresentationGraph do
       %Node{value: new_map, tag: ""}
     end
 
-    def new(scalar) when is_atom(scalar) and not is_boolean(scalar) do
-      %Node{value: scalar, tag: "!<tag:yamerl,2012:atom>"}
-    end
-
     def new(scalar) do
       %Node{value: scalar, tag: ""}
     end
