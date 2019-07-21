@@ -61,7 +61,7 @@ defmodule Presentation do
   end
 
   defp literal(%Node{value: val, tag: t}, n) do
-    indent(n) <> tag_and_space(t) <> Kernel.to_string(val)
+    indent(n) <> tag_and_space(t) <> "\"" <> Kernel.to_string(val) <> "\""
   end
 
   defp tag_and_space(t) do
